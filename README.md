@@ -17,7 +17,7 @@ DersPusulası, üniversite öğrencilerinin ders materyallerini sınava kadar ç
 
 ## İş takip panosu
 
-Pano oluşturulduğunda bağlantısı buraya eklenecektir.
+[DersPusulası İş Takibi](https://github.com/users/ynsemre08/projects/1)
 
 ## Çalıştırma adımları
 
