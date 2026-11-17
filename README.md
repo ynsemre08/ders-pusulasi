@@ -59,8 +59,45 @@ Bu klasör Git deposuna dahil edilmez.
 
 ### 2. Günlük müsaitliğe göre çalışma planı oluşturma
 
-Bu özellik henüz geliştirilmemiştir. İş takip panosundaki #2
-numaralı görev kapsamında uygulanacaktır.
+1. Yüklenen PDF’nin satırındaki “Plan oluştur” bağlantısına tıklayın.
+2. Çalışılacak ilk ve son sayfayı seçin.
+3. Sayfa başına tahmini çalışma süresini dakika olarak girin.
+4. Sınav tarihini belirleyin.
+5. Çalışabileceğiniz tarihleri ve her günün müsaitlik süresini girin.
+   Ek tarihler için “Gün ekle” düğmesini kullanın.
+6. “Planı hesapla” düğmesine basın.
+
+Örnek deneme — en az 8 sayfalık bir PDF için:
+- Sayfa aralığı: 1–8.
+- Sayfa başına süre: 5 dakika.
+- Sınav tarihi: bugünden iki gün sonra.
+- Bugünkü müsaitlik: 20 dakika.
+- Yarınki müsaitlik: 10 dakika.
+
+Beklenen sonuç:
+- Bugüne 1–4. sayfalar, yarına 5–6. sayfalar atanır.
+- 7–8. sayfalar plana sığmaz; gereken ek süre 10 dakika gösterilir.
+- Yarınki müsaitlik 20 dakikaya çıkarılıp yeniden hesaplandığında
+  8 sayfanın tamamı plana sığar.
+
+Ek kontroller:
+- Sayfa aralığını 3–6, bugünkü müsaitliği 0 ve yarınki
+  müsaitliği 20 dakika yapın. Yalnızca yarına 3–6. sayfalar atanmalıdır.
+- PDF sınırları dışındaki sayfalar ve sıfır veya negatif
+  sayfa başına çalışma süresi reddedilir.
+
+Planlama kuralları:
+- Tarihler Türkiye saatine göre değerlendirilir.
+- Geçmiş günler, sınav günü ve sınavdan sonraki günler kullanılamaz.
+- Günlük müsaitlik aşılmaz; 0 dakika olan güne çalışma atanmaz.
+- Sayfalar sırayla dağıtılır. Her sayfa tek günde tamamlanır;
+  bir güne sığmayan sayfa sonraki müsait güne bırakılır.
+- Listede olmayan günlere çalışma atanmaz.
+- Aynı tarih birden fazla girilemez.
+
+Bu sürümde her plan tek PDF için hesaplanır ve sonuç ekranda
+gösterilir. İlerleme kaydı ve yeni materyallere göre otomatik
+plan güncelleme, sonraki geliştirmeler arasındadır.
 
 ## Otomatik testler
 
@@ -70,11 +107,14 @@ Proje klasöründe çalıştırın:
 .\.venv\Scripts\python.exe -m pytest -q
 ```
 
-Mevcut sürümde 18 test bulunmaktadır. Testler geçici klasörlerde
+Mevcut sürümde 66 test bulunmaktadır. Testler geçici klasörlerde
 çalışır; kullanıcının yüklediği belgeleri değiştirmez.
 
 ## Proje durumu
 
-PDF yükleme, kalıcı saklama ve yeniden görüntüleme özelliği
-uygulanmıştır. Manuel kontroller ve 18 otomatik test geçmiştir.
-Çalışma planı oluşturma özelliği sıradaki geliştirme görevidir.
+Vize kapsamındaki iki özellik uygulanmıştır:
+1. PDF yükleme, kalıcı saklama ve yeniden görüntüleme.
+2. Günlük müsaitliğe göre sayfa bazında çalışma planı oluşturma.
+
+Manuel senaryolar doğrulanmış ve 66 otomatik test geçmiştir.
+Diğer geliştirmeler iş takip panosunda planlanmıştır.
